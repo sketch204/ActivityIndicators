@@ -41,7 +41,7 @@ The types of indicator that are available are:
 - `Pulse`
 - `Radar`
 
-Each indicator also takes in an option `color` parameter at the end, of type `Color`, which is used to specify the color of the indicator. The default value of that parameter is the default label color of the current platform. 
+Each indicator also takes in an optional `color` parameter of type `Color` at the end its initializer. This is used to specify the color of the indicator. The default value of this parameter is the primary color. The only exception to this is the `Pulse` type which cannot use non-opaque colors and instead uses the label color of your platform. 
 
 This snippet creates an indicator with the `Pulse` animation colored red.
 ``` Swift

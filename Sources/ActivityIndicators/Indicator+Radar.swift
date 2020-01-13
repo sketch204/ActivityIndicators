@@ -9,16 +9,16 @@
 import SwiftUI
 
 extension Indicator {
-    struct Radar: ActivityIndicator {
-        @Binding var isAnimating: Bool
-        var color = Color.primary
+    public struct Radar: ActivityIndicator {
+        @Binding public var isAnimating: Bool
+        public var color = Color.primary
         
         /// The index of the currently animating ball.
         @State private var currentIndex: Int = -1
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
         
-        var body: some View {
+        public var body: some View {
             GeometryReader { proxy in
                 HStack(spacing: 0) {
                     ForEach(0...2, id: \.self) { index in
@@ -43,13 +43,13 @@ extension Indicator {
         
         /// Returns the padding for each ball of the indicator.
         /// - Parameter proxy: The GeometryProxy representing the container of this Activity Indicator.
-        func padding(_ proxy: GeometryProxy) -> CGFloat {
+        public func padding(_ proxy: GeometryProxy) -> CGFloat {
             self.maxDimension(proxy) * 0.075
         }
         
         /// Returns the current scale factor for the given index of a ball.
         /// - Parameter index: The index of the ball for which you want the scale factor.
-        func scaleEffect(for index: Int) -> CGFloat {
+        public func scaleEffect(for index: Int) -> CGFloat {
             return index == currentIndex ? 1.5 : 1.0
         }
     }

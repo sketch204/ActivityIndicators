@@ -9,12 +9,12 @@
 import SwiftUI
 
 extension Indicator {
-    struct Pulse: ActivityIndicator {
-        @Binding var isAnimating: Bool
+    public struct Pulse: ActivityIndicator {
+        @Binding public var isAnimating: Bool
         #if os(macOS)
-        var color = Color(NSColor.textColor)
+        public var color = Color(NSColor.textColor)
         #elseif os(iOS)
-        var color = Color(UIColor.label)
+        public var color = Color(UIColor.label)
         #endif
         
         /// The current scale factor of the pulsing circle.
@@ -24,7 +24,7 @@ extension Indicator {
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         
-        var body: some View {
+        public var body: some View {
             ZStack {
                 Circle()
                     .fill(self.color)

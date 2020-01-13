@@ -9,10 +9,10 @@
 import SwiftUI
 
 /// A container type for supported Indicators.
-enum Indicator {}
+public enum Indicator {}
 
 /// A protocol which defines an Activity Indicator and provides some utility functions.
-protocol ActivityIndicator: View {
+public protocol ActivityIndicator: View {
     /// States whether or not this activity indicator should be animating.
     var isAnimating: Bool { get }
     

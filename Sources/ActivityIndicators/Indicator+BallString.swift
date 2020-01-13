@@ -9,9 +9,9 @@
 import SwiftUI
 
 extension Indicator {
-    struct BallString: ActivityIndicator {
-        @Binding var isAnimating: Bool
-        var color = Color.primary
+    public struct BallString: ActivityIndicator {
+        @Binding public var isAnimating: Bool
+        public var color = Color.primary
         
         /// The current rotation of the ball string.
         @State private var rotation: Double = 360
@@ -20,7 +20,7 @@ extension Indicator {
         /// The number of ball in the ball string.
         private let numOfBalls: Int = 7
         
-        var body: some View {
+        public var body: some View {
             GeometryReader { proxy in
                 ForEach(1...self.numOfBalls, id: \.self) { index in
                     ZStack {
@@ -48,13 +48,13 @@ extension Indicator {
         
         /// Returns the width of a single ball in the ball string.
         /// - Parameter proxy: The GeometryProxy representing the container of this Activity Indicator.
-        internal func width(_ proxy: GeometryProxy) -> CGFloat {
+        private func width(_ proxy: GeometryProxy) -> CGFloat {
             minDimension(proxy) * 0.07
         }
         
         /// Returns the height of a single ball in the ball string.
         /// - Parameter proxy: The GeometryProxy representing the container of this Activity Indicator.
-        internal func height(_ proxy: GeometryProxy) -> CGFloat {
+        private func height(_ proxy: GeometryProxy) -> CGFloat {
             (minDimension(proxy) / 2) - (minDimension(proxy) * 0.25)
         }
     }

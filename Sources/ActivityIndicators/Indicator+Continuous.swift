@@ -9,16 +9,16 @@
 import SwiftUI
 
 extension Indicator {
-    struct Continuous: ActivityIndicator {
-        @Binding var isAnimating: Bool
-        var color = Color.primary
+    public struct Continuous: ActivityIndicator {
+        @Binding public var isAnimating: Bool
+        public var color = Color.primary
         
         /// The current rotation of the ball string.
         @State private var rotation: Double = 360
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
         
-        var body: some View {
+        public var body: some View {
             GeometryReader { proxy in
                 Circle()
                     .strokeBorder(
@@ -42,7 +42,7 @@ extension Indicator {
         
         /// Returns the line width of the indicator.
         /// - Parameter proxy: The GeometryProxy representing the container of this Activity Indicator.
-        func lineWidth(_ proxy: GeometryProxy) -> CGFloat {
+        private func lineWidth(_ proxy: GeometryProxy) -> CGFloat {
             self.minDimension(proxy) * 0.1
         }
     }
