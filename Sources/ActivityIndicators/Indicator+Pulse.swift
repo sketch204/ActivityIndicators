@@ -67,6 +67,19 @@ extension Indicator {
         private func padding(_ proxy: GeometryProxy) -> CGFloat {
             self.minDimension(proxy) * 0.25
         }
+        
+        /// Creates a new Indicator of type Pulse of the given color (if given), binded to the given bool isAnimating property.
+        /// - Parameters:
+        ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
+        ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the label color.
+        public init(isAnimating: Binding<Bool>, color: Color? = nil) {
+            self._isAnimating = isAnimating
+            #if os(macOS)
+            self.color = color ?? Color(NSColor.textColor)
+            #elseif os(iOS)
+            self.color = color ?? Color(UIColor.label)
+            #endif
+        }
     }
 
 }

@@ -57,6 +57,15 @@ extension Indicator {
         private func height(_ proxy: GeometryProxy) -> CGFloat {
             (minDimension(proxy) / 2) - (minDimension(proxy) * 0.25)
         }
+        
+        /// Creates a new Indicator of type BallString of the given color (if given), binded to the given bool isAnimating property.
+        /// - Parameters:
+        ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
+        ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the primary color.
+        public init(isAnimating: Binding<Bool>, color: Color = .primary) {
+            self._isAnimating = isAnimating
+            self.color = color
+        }
     }
 }
 
