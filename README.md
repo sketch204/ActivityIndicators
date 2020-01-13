@@ -2,7 +2,7 @@
 
 Use this small library to add a simple activity indicators to your `SwiftUI` apps!
 
-
+![demo git][https://github.com/sketch204/ActivityIndicators/blob/master/demo.gif]
 
 ### Installation
 
