@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Indicator {
     public struct Radar: ActivityIndicator {
-        @Binding public var isAnimating: Bool
+        public var isAnimating: Bool
         public var color = Color.primary
         
         /// The index of the currently animating ball.
@@ -57,8 +57,8 @@ extension Indicator {
         /// - Parameters:
         ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
         ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the primary color.
-        public init(isAnimating: Binding<Bool>, color: Color = .primary) {
-            self._isAnimating = isAnimating
+        public init(isAnimating: Bool, color: Color = .primary) {
+            self.isAnimating = isAnimating
             self.color = color
         }
     }
@@ -67,8 +67,8 @@ extension Indicator {
 struct Indicator_Radar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Indicator.Radar(isAnimating: .constant(true), color: .yellow)
-            Indicator.Radar(isAnimating: .constant(false))
+            Indicator.Radar(isAnimating: true, color: .yellow)
+            Indicator.Radar(isAnimating: false)
         }
     }
 }

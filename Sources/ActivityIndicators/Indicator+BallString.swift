@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Indicator {
     public struct BallString: ActivityIndicator {
-        @Binding public var isAnimating: Bool
+        public var isAnimating: Bool
         public var color = Color.primary
         
         /// The current rotation of the ball string.
@@ -62,8 +62,8 @@ extension Indicator {
         /// - Parameters:
         ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
         ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the primary color.
-        public init(isAnimating: Binding<Bool>, color: Color = .primary) {
-            self._isAnimating = isAnimating
+        public init(isAnimating: Bool, color: Color = .primary) {
+            self.isAnimating = isAnimating
             self.color = color
         }
     }
@@ -72,8 +72,8 @@ extension Indicator {
 struct BallString_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Indicator.BallString(isAnimating: .constant(true), color: .yellow)
-            Indicator.BallString(isAnimating: .constant(false))
+            Indicator.BallString(isAnimating: true, color: .yellow)
+            Indicator.BallString(isAnimating: false)
         }
     }
 }

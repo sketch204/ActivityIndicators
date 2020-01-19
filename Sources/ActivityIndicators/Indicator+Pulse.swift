@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Indicator {
     public struct Pulse: ActivityIndicator {
-        @Binding public var isAnimating: Bool
+        public var isAnimating: Bool
         #if os(macOS)
         public var color = Color(NSColor.textColor)
         #elseif os(iOS)
@@ -72,8 +72,8 @@ extension Indicator {
         /// - Parameters:
         ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
         ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the label color.
-        public init(isAnimating: Binding<Bool>, color: Color? = nil) {
-            self._isAnimating = isAnimating
+        public init(isAnimating: Bool, color: Color? = nil) {
+            self.isAnimating = isAnimating
             #if os(macOS)
             self.color = color ?? Color(NSColor.textColor)
             #elseif os(iOS)
@@ -87,8 +87,8 @@ extension Indicator {
 struct Pulse_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Indicator.Pulse(isAnimating: .constant(true))//, color: .yellow)
-            Indicator.Pulse(isAnimating: .constant(false))
+            Indicator.Pulse(isAnimating: true)//, color: .yellow)
+            Indicator.Pulse(isAnimating: false)
         }
     }
 }
