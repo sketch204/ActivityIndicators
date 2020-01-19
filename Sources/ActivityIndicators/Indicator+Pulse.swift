@@ -72,7 +72,7 @@ extension Indicator {
         /// - Parameters:
         ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
         ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the label color.
-        public init(isAnimating: Bool, color: Color? = nil) {
+        public init(isAnimating: Bool = true, color: Color? = nil) {
             self.isAnimating = isAnimating
             #if os(macOS)
             self.color = color ?? Color(NSColor.textColor)

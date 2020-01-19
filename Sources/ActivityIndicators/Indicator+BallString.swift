@@ -62,7 +62,7 @@ extension Indicator {
         /// - Parameters:
         ///   - isAnimating: A Binding to a Bool which controls whether or not this indicator is animating.
         ///   - color: An optional parameter which control the color of this indicator. The default value of this parameter is the primary color.
-        public init(isAnimating: Bool, color: Color = .primary) {
+        public init(isAnimating: Bool = true, color: Color = .primary) {
             self.isAnimating = isAnimating
             self.color = color
         }
