@@ -1,8 +1,9 @@
-# ActivityIndicators
+<H1 align="center">ActivityIndicators</H1>
 
-Use this small library to add a simple activity indicator to your `SwiftUI` apps!
-
-![demo gif](https://github.com/sketch204/ActivityIndicators/blob/master/demo.gif)
+<p align="center">Use this small library to add a simple activity indicator to your `SwiftUI` apps!</p>
+<p align="center">
+    <img src="https://github.com/sketch204/ActivityIndicators/blob/master/demo.gif" align="center"/>
+</p>
 
 ### Installation
 
