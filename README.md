@@ -15,7 +15,7 @@ The preferred way of installing this library is through the Swift Package Manage
 
 ### Usage
 
-All indicators are encapsulated in the `Indicator` type. There are a number of indicator style available, as shown in the gif above. You can add the `Default` style indicator to your layout with the following snippet.
+All indicators are encapsulated in the `Indicator` type. There are a number of indicator styles available, as shown in the gif above. You can add the `Default` style indicator to your layout with the following code snippet.
 ``` Swift
 import SwiftUI
 
@@ -43,7 +43,8 @@ The types of indicator that are available are:
 
 Each indicator also takes in an optional `color` parameter of type `Color` at the end its initializer. This is used to specify the color of the indicator. The default value of this parameter is the primary label color. The only exception to this is the `Pulse` type which cannot use transparent colors and instead uses the non-opaque label color of your platform. 
 
-As another example, this snippet below creates an indicator with the `Pulse` animation colored red.
+Another example
 ``` Swift
+// Create a red 'Pulse' indicator
 Indicator.Pulse(isAnimating: isAnimating, color: .red)
 ```
