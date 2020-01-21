@@ -20,11 +20,11 @@ All indictors are encapsulated in the `Indicator` struct. You can add a `Default
 import SwiftUI
 
 struct YourView: View {
-    @State private var isLoading: Bool = false
+    @State private var isLoading: Bool = true
 
     var body: some View {
         VStack {
-            Indicator.Default(isAnimating: $isLoading)
+            Indicator.Default(isAnimating: isLoading)
             
             Button("Toggle Loading") {
                 self.isLoading.toggle()
@@ -45,5 +45,5 @@ Each indicator also takes in an optional `color` parameter of type `Color` at th
 
 This snippet creates an indicator with the `Pulse` animation colored red.
 ``` Swift
-Indicator.Pulse(isAnimating: $isAnimating, color: .red)
+Indicator.Pulse(isAnimating: isAnimating, color: .red)
 ```
