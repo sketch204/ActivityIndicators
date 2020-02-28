@@ -1,8 +1,9 @@
-# ActivityIndicators
+<H1 align="center">ActivityIndicators</H1>
 
-Use this small library to add a simple activity indicators to your `SwiftUI` apps!
-
-![demo gif](https://github.com/sketch204/ActivityIndicators/blob/master/demo.gif)
+<p align="center">Use this small library to add a simple activity indicator to your <code>SwiftUI</code> apps!</p>
+<p align="center">
+    <img src="https://github.com/sketch204/ActivityIndicators/blob/master/demo.gif"/>
+</p>
 
 ### Installation
 
@@ -15,16 +16,16 @@ The preferred way of installing this library is through the Swift Package Manage
 
 ### Usage
 
-All indictors are encapsulated in the `Indicator` struct. You can add a `Default` style indicator to your layout with the following snippet.
+All indicators are encapsulated in the `Indicator` type. There are a number of indicator styles available, as shown in the gif above. You can add the `Default` style indicator to your layout with the following code snippet.
 ``` Swift
 import SwiftUI
 
 struct YourView: View {
-    @State private var isLoading: Bool = false
+    @State private var isLoading: Bool = true
 
     var body: some View {
         VStack {
-            Indicator.Default(isAnimating: $isLoading)
+            Indicator.Default(isAnimating: isLoading)
             
             Button("Toggle Loading") {
                 self.isLoading.toggle()
@@ -41,9 +42,10 @@ The types of indicator that are available are:
 - `Pulse`
 - `Radar`
 
-Each indicator also takes in an optional `color` parameter of type `Color` at the end its initializer. This is used to specify the color of the indicator. The default value of this parameter is the primary color. The only exception to this is the `Pulse` type which cannot use non-opaque colors and instead uses the label color of your platform. 
+Each indicator also takes in an optional `color` parameter of type `Color` at the end its initializer. This is used to specify the color of the indicator. The default value of this parameter is the primary label color. The only exception to this is the `Pulse` type which cannot use transparent colors and instead uses the non-opaque label color of your platform. 
 
-This snippet creates an indicator with the `Pulse` animation colored red.
+Another example
 ``` Swift
-Indicator.Pulse(isAnimating: $isAnimating, color: .red)
+// Create a red 'Pulse' indicator
+Indicator.Pulse(isAnimating: isAnimating, color: .red)
 ```
