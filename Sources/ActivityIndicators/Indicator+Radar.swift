@@ -17,6 +17,7 @@ extension Indicator {
         @State private var currentIndex: Int = -1
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
+        public var defaultSize: CGSize? = CGSize(width: 40, height: 40)
         
         public var body: some View {
             GeometryReader { proxy in

@@ -19,6 +19,7 @@ extension Indicator {
         private let timer = Timer.publish(every: 1.5, on: .main, in: .common).autoconnect()
         /// The number of ball in the ball string.
         private let numOfBalls: Int = 7
+        public var defaultSize: CGSize? = CGSize(width: 40, height: 40)
         
         public var body: some View {
             GeometryReader { proxy in

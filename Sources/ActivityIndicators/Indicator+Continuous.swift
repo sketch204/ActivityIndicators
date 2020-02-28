@@ -17,6 +17,7 @@ extension Indicator {
         @State private var rotation: Double = 360
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+        public var defaultSize: CGSize? = CGSize(width: 40, height: 40)
         
         public var body: some View {
             GeometryReader { proxy in

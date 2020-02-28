@@ -17,6 +17,7 @@ extension Indicator {
         @State private var rotation: Double = 0
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 1 / 12, on: .main, in: .common).autoconnect()
+        public var defaultSize: CGSize? = CGSize(width: 40, height: 40)
         
         public var body: some View {
             GeometryReader { proxy in
@@ -34,7 +35,7 @@ extension Indicator {
                     .rotationEffect(.radians(-2 * Double.pi * (Double(index) / 12)))
                 }
             }
-            .frame(width: 40, height: 40)
+            .frame(width: defaultSize?.width, height: defaultSize?.height)
             .rotationEffect(.degrees(self.rotation))
             .animation(.none)
             .onReceive(self.timer) { _ in
@@ -76,6 +77,8 @@ struct DefaultIndicator_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Indicator.Default(isAnimating: true, color: .yellow)
+                .resizable()
+                .frame(width: 80, height: 80)
             Indicator.Default(isAnimating: false)
         }
     }
