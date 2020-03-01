@@ -51,7 +51,7 @@ Indicator.Pulse(isAnimating: isAnimating, color: .red)
 ```
 ##### Resizing
 
-By default all indicators take a size of 40x40 pixels. This can be customized by using the `resizable` modifier on the indicator directly. This modifier behaves similar to how `SwiftUI.Image`'s `resizable` modifier behaves, specifically, making the indicator take up all of the space that the parent offers it. This allows you to follow the `resizable` modifier with a `frame` modifier to set a custom size for the indicator. 
+By default most indicators take a size of 40x40 pixels. This can be customized by using the `resizable` modifier on the indicator directly. This modifier behaves similar to how `SwiftUI.Image`'s `resizable` modifier behaves, specifically, making the indicator take up all of the space that the parent offers it. This allows you to follow the `resizable` modifier with a `frame` modifier to set a custom size for the indicator. 
 
 Here's a simple example:
 ``` Swift
@@ -61,4 +61,4 @@ Indicator.Default(isAnimating: isAnimating)
     .frame(width: 100, height: 100)
 ```
 
-**Note:** At the moment, non-square sizes may be glitchy under specific circumstances. This should be fixed soon, but for now try to provide equal widths and heights to the indicators, for best results.
+**Note:** At the moment, non-square sizes may be glitchy under specific circumstances. This should be fixed soon, but for now try to provide equal widths and heights to square the indicators, for best results.
