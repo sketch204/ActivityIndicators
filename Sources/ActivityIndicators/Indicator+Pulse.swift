@@ -23,7 +23,7 @@ extension Indicator {
         @State private var opacity: Double = 0
         /// The timer which drives the animation of this indicator.
         private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-        public var defaultSize: CGSize? = CGSize(width: 40, height: 40)
+        public var defaultSize: CGSize? = CGSize(width: 60, height: 60)
         
         public var body: some View {
             ZStack {
@@ -34,7 +34,7 @@ extension Indicator {
                     .mask(
                         GeometryReader { proxy in
                             Circle()
-                                .stroke(Color.white, lineWidth: 50)
+                                .stroke(Color.white, lineWidth: self.minDimension(proxy) * 5 / 6)
                                 .padding(self.padding(proxy))
                         }
                     )
@@ -45,7 +45,7 @@ extension Indicator {
                         .padding(self.padding(proxy))
                 }
             }
-            .frame(width: 60, height: 60)
+            .frame(width: defaultSize?.width, height: defaultSize?.height)
             .onReceive(self.timer) { _ in
                 // Reset
                 if self.scaleEffect != 0 {

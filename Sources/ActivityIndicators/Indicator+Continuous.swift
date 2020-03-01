@@ -31,7 +31,7 @@ extension Indicator {
                     )
             }
             .rotationEffect(.degrees(self.rotation))
-            .frame(width: 40, height: 40)
+            .frame(width: defaultSize?.width, height: defaultSize?.height)
             .onReceive(self.timer) { _ in
                 if self.isAnimating {
                     withAnimation(Animation.linear) {

@@ -38,7 +38,7 @@ extension Indicator {
                     .animation(Animation.easeInOut(duration: 1).delay(Double(index) / 20))
                 }
             }
-            .frame(width: 40, height: 40)
+            .frame(width: defaultSize?.width, height: defaultSize?.height)
             .animation(.none)
             .onReceive(self.timer) { _ in
                 if self.isAnimating {
